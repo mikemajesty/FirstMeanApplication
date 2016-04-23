@@ -10,8 +10,21 @@ app.use(bodyParser.urlencoded({extend:true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
+app.use((req,res,next)=>{
+	res.header('Access-Control-Allow-Origin','*');
+	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers','Content-Type');
+	next();
+});
+
+app.use('/hello',(req,res,next) =>{
+	res.send('Hello Word');
+	next();
+});
+
 mongoose.connect('mongodb://localhost/meanapp');
 mongoose.connection.once('open',() =>{
+	
 	console.log("Listening on port 3000.....");
 	app.listen(3000);
 });
