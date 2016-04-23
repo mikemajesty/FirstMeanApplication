@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({extend:true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-var f = ()=>{
-  
-};
+mongoose.connect('mongodb://localhost/meanapp');
+mongoose.connection.once('open',() =>{
+	console.log("Listening on port 3000.....");
+	app.listen(3000);
+});
+
