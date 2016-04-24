@@ -29,11 +29,11 @@ mongoose.connection.once('open',() =>{
 	var routes = require('./routes');
 	
 	_.each(routes,(controller,route) => { 
-		console.log('wtf',route);
+		
 		app.use(route,controller(app,route));
 	});
 	
 	console.log("Listening on port 3000.....");
-	app.listen(3030);
+	app.listen(3000);
 });
 
