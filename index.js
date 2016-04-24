@@ -18,7 +18,7 @@ app.use((req,res,next)=>{
 });
 
 app.use('/hello',(req,res,next) =>{
-	res.send('Hello Word');
+	res.send('Hello word');
 	next();
 });
 
@@ -28,11 +28,12 @@ mongoose.connection.once('open',() =>{
 	app.models = require('./models/index');	
 	var routes = require('./routes');
 	
-	_.each(routes,(controller,route) => {
+	_.each(routes,(controller,route) => { 
+		console.log('wtf',route);
 		app.use(route,controller(app,route));
 	});
 	
 	console.log("Listening on port 3000.....");
-	app.listen(3002);
+	app.listen(3030);
 });
 
