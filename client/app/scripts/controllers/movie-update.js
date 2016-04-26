@@ -8,10 +8,16 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MovieUpdateCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MovieUpdateCtrl', function ($scope, $routeParams, Movie, $location) {
+    $scope.editMovie = true;
+    $scope.movie = {};
+
+    Movie.one($routeParams.id).get().then((movie) =>{
+      $scope.movie = movie;
+      $scope.saveMovie = () => {
+        $scope.movie.save().then( () => {
+          $location.path('/movie/'+$routeParams.id);
+        });
+      };
+    });
   });
