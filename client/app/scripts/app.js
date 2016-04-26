@@ -52,6 +52,11 @@ angular
         controller: 'MovieEditCtrl',
         controllerAs: 'movieEdit'
       })
+      .when('/movie/:id/update', {
+        templateUrl: 'views/movie-update.html',
+        controller: 'MovieUpdateCtrl',
+        controllerAs: 'movieUpdate'
+      })
       .otherwise({
         redirectTo: '/'
       });
