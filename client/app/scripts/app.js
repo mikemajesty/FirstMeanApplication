@@ -32,6 +32,26 @@ angular
         controller: 'MoviesCtrl',
         controllerAs: 'movies'
       })
+      .when('/create/movie', {
+        templateUrl: 'views/movie-add.html',
+        controller: 'MovieAddCtrl',
+        controllerAs: 'movieAdd'
+      })
+      .when('/movie/:id/delete', {
+        templateUrl: 'views/movie-view.html',
+        controller: 'MovieViewCtrl',
+        controllerAs: 'movieView'
+      })
+      .when('/movie/:id', {
+        templateUrl: 'views/movie-view.html',
+        controller: 'MovieViewCtrl',
+        controllerAs: 'movieView'
+      })
+      .when('/movie/:id/edit', {
+        templateUrl: 'views/movie-edit.html',
+        controller: 'MovieEditCtrl',
+        controllerAs: 'movieEdit'
+      })
       .otherwise({
         redirectTo: '/'
       });
