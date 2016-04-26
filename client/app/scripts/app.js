@@ -57,6 +57,11 @@ angular
         controller: 'MovieUpdateCtrl',
         controllerAs: 'movieUpdate'
       })
+      .when('/movie/:id/delete', {
+        templateUrl: 'views/movie-delete.html',
+        controller: 'MovieDeleteCtrl',
+        controllerAs: 'movieDelete'
+      })
       .otherwise({
         redirectTo: '/'
       });
