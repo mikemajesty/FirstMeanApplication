@@ -8,11 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MoviesCtrl', function () {
-    this.movies = [
-      {
-        title:"A new Hope",
-        url: "https://github.com/stephenplusplus/grunt-wiredep/issues/100"
-      }
+  .controller('MoviesCtrl', function ($scope, Movie) {
+    $scope.movies = Movie.getList().$object;
     ];
   });
