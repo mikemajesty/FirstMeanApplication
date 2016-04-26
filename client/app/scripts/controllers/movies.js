@@ -9,9 +9,10 @@
  */
 angular.module('clientApp')
   .controller('MoviesCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    this.movies = [
+      {
+        title:"A new Hope",
+        url: "https://github.com/stephenplusplus/grunt-wiredep/issues/100"
+      }
     ];
   });
