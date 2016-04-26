@@ -8,10 +8,14 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MovieDeleteCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MovieDeleteCtrl', function ($scope, $routeParams, Movie, $location) {
+     $scope.movie = Movie.one($routeParams.id).get().$object;
+     $scope.deleteMovie = () => {
+       $scope.movie.remove().then( () => {
+         $location.path('/movies');
+       });
+     };
+     $scope.back = () => {
+       $location.path('/movie/'+$routeParams.id);
+     };
+    });
