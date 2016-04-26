@@ -10,6 +10,8 @@
  */
 angular
   .module('clientApp', [
+    'ngRoute',
+    'restangular',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -17,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,RestangularProvider) {
+    RestangularProvider.setBaseUrl('http://localhost:3000');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
